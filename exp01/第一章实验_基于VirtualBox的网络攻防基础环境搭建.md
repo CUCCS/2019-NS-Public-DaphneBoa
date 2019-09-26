@@ -56,7 +56,7 @@
 
 - 此时多重加载已经配置完成。
 
-  <img src="D:\2019Term2\git_file\2019-NS-Public-DaphneBoa\exp01\第一章实验_多重加载.png" alt="第一章实验_多重加载" style="zoom:50%;" />
+  <img src="第一章实验_多重加载.png" alt="第一章实验_多重加载" style="zoom:50%;" />
 
 - 再次启动kali-victim，以查看是否能正常启动。
 
@@ -85,7 +85,7 @@
 
 - 最后给gateway配置上intnet-1和intnet-2，如图所示：
 
-  <img src="D:\2019Term2\git_file\2019-NS-Public-DaphneBoa\exp01\第一章实验_3个网卡.png" alt="第一章实验_3个网卡" style="zoom:33%;" />
+  <img src="第一章实验_3个网卡.png" alt="第一章实验_3个网卡" style="zoom:33%;" />
 
 **第九步：测试网络**
 
@@ -93,7 +93,7 @@
 
   攻击者主机ip如图：
 
-  <img src="D:\2019Term2\git_file\2019-NS-Public-DaphneBoa\exp01\第一章实验_攻击者主机ip.png" alt="第一章实验_攻击者主机ip" style="zoom:50%;" />
+  <img src="第一章实验_攻击者主机ip.png" alt="第一章实验_攻击者主机ip" style="zoom:50%;" />
 
   用kali-victim来ping攻击者主机ip，发现**网络连接激活失败**。
 
@@ -105,7 +105,7 @@
 
   网关访问攻击者主机如图：
 
-  <img src="D:\2019Term2\git_file\2019-NS-Public-DaphneBoa\exp01\第一章实验_网关访问攻击者.png" alt="第一章实验_网关访问攻击者" style="zoom:50%;" />
+  <img src="第一章实验_网关访问攻击者.png" alt="第一章实验_网关访问攻击者" style="zoom:50%;" />
 
   
 
@@ -115,11 +115,11 @@
 
   攻击者主机访问互联网如下图所示：
 
-  <img src="D:\2019Term2\git_file\2019-NS-Public-DaphneBoa\exp01\第一章实验_攻击者访问互联网.png" alt="第一章实验_攻击者访问互联网" style="zoom:50%;" />
+  <img src="第一章实验_攻击者访问互联网.png" alt="第一章实验_攻击者访问互联网" style="zoom:50%;" />
 
   网关访问互联网：
 
-  <img src="D:\2019Term2\git_file\2019-NS-Public-DaphneBoa\exp01\第一章实验_网关访问互联网.png" alt="第一章实验_网关访问互联网" style="zoom:33%;" />
+  <img src="第一章实验_网关访问互联网.png" alt="第一章实验_网关访问互联网" style="zoom:33%;" />
 
 
 
