@@ -1,4 +1,4 @@
-## 第一章实验：基于VirtualBox的网络攻防基础环境搭建
+# 第一章实验：基于VirtualBox的网络攻防基础环境搭建
 
 ### 实验目的
 
@@ -97,9 +97,31 @@
 
   用kali-victim来ping攻击者主机ip，发现**网络连接激活失败**。
 
-  
+  解决办法：给gateway再配一个host-only网络（具体结果参照课堂视频），这一步报错：Could not find Host Interface Networking driver! Please reinstall. 是因为之前卸载虚拟网卡的时候把驱动也给删除了，按照本报告最后提供的链接里的方法可以重新安装驱动。
 
-- [ ] 攻击者主机无法直接访问靶机
+  此时gateway的网卡情况如下：
+
+  <img src="第一章实验_4个网卡.png" alt="第一章实验_4个网卡" style="zoom:50%;" />
+
+  排查故障后，开启所有虚拟机，用四个靶机来ping主机的ip地址，发现两个xp靶机都无法ping攻击者主机：
+
+  <img src="两xp访问攻击者失败.png" alt="两xp访问攻击者失败" style="zoom:50%;" />
+
+  和这两个xp靶机同属一个内部网络下的靶机都能ping通，因此怀疑不是virtual box设置的问题，需要打开这两个虚拟机修改其内部的设置。
+
+  **我以为是防火墙的问题，关闭了防火墙，也检查了网络设置，还是ping不通。**
+
+  **求解。**
+
+- [x] 攻击者主机无法直接访问靶机
+
+  用攻击者ping靶机kali和debian都不通，但是这里有个新问题——**两xp靶机无法查看自己的ip地址**，显示如图：
+
+  ![两xp查不到自己的ip](两xp查不到自己的ip.png)
+
+  网上说需要删除驱动，然后重新扫描硬件，我看了这两个虚拟机的驱动，全是和Vbox有关的，删除恐怕会导致无法启动虚拟机，所以不敢做任何改动。
+
+  **求解正确的解决方法。**
 
 - [x] 网关可以直接访问攻击者主机和靶机
 
@@ -107,9 +129,15 @@
 
   <img src="第一章实验_网关访问攻击者.png" alt="第一章实验_网关访问攻击者" style="zoom:50%;" />
 
-  
+  网关访问靶机kali和debian如图：（**找不到xp的ip地址所以做不了这个**）
+
+  <img src="网关访问靶机kali.png" alt="网关访问靶机kali" style="zoom:50%;" />
+
+  <img src="网关访问靶机debian.png" alt="网关访问靶机debian" style="zoom:50%;" />
 
 - [ ] 靶机的所有对外上下行流量必须经过网关
+
+  
 
 - [x] 所有节点均可以访问互联网
 
@@ -120,13 +148,21 @@
   网关访问互联网：
 
   <img src="第一章实验_网关访问互联网.png" alt="第一章实验_网关访问互联网" style="zoom:33%;" />
+  
+  靶机kali和debian访问互联网：（**靶机xp还是有网络问题**）
+  
+  <img src="靶机kali访问互联网.png" alt="靶机kali访问互联网" style="zoom:50%;" />
+  
+  <img src="靶机debian访问互联网.png" alt="靶机debian访问互联网" style="zoom:70%;" />
 
+### 总结
 
-
-
+- 能力有限，不知道那两个xp靶机的网络问题出在哪。
 
 ### 参考资料
 
 > kali安装指南：https://blog.csdn.net/JaydenWang5310/article/details/78104472
 >
-> 
+> 安装虚拟机驱动：https://blog.csdn.net/qq443068902/article/details/51222954
+>
+> ping不通的问题：https://blog.csdn.net/the_catcher/article/details/52159545
